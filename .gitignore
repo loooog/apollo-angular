@@ -59,3 +59,6 @@ packages/*/npm/
 
 # docs
 docs/public/docs
+
+.next
+.next/*

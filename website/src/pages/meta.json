@@ -1,0 +1,30 @@
+{
+  "index": {
+    "title": "Home",
+    "type": "page",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "docs": {
+    "title": "Docs",
+    "type": "page",
+    "theme": {
+      "toc": true
+    }
+  },
+  "version_1": {
+    "title": "V1",
+    "type": "page",
+    "theme": {
+      "toc": true
+    }
+  },
+  "version_2": {
+    "title": "V2",
+    "type": "page",
+    "theme": {
+      "toc": true
+    }
+  }
+}
