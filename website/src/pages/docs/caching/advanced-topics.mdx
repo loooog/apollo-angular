@@ -214,8 +214,7 @@ Note that because we are only using the `type` argument in the store key, we don
 
 ## Cache redirects using field policy `read` functions
 
-<Callout type="warning">
-⚠️ **Note:** Apollo Client >= 3.0 no longer supports the `ApolloClient` `cacheRedirects` constructor option. Equivalent `cacheRedirects` functionality can now be handled with field policy `read` functions, and is explained below.
+<Callout type="warning" emoji="⚠️">**Note:** Apollo Client >= 3.0 no longer supports the `ApolloClient` `cacheRedirects` constructor option. Equivalent `cacheRedirects` functionality can now be handled with field policy `read` functions, and is explained below.
 </Callout>
 
 In some cases, a query requests data that already exists in the cache under a different reference. A very common example of this is when your UI has a list view and a detail view that both use the same data. The list view might run the following query:
@@ -265,8 +264,8 @@ const cache = new InMemoryCache({
 
 Now whenever a query is run that includes a `book` field, the `read` function above will be executed, and return a reference that points to the book entity that was already created in the cache when the `Books` list view query ran. Apollo Client will use the reference returned by the `read` function to look up the item in its cache. `toReference` is a helper utility that is passed into `read` functions as part of the second parameter options object, and is used to generate an entity reference based on its `__typename` and `id`.
 
-<Callout type="warning">
-⚠️ **Note:** For the above to work properly, the data returned by the list query has to include all of the data the specific detail query needs. If the specific detail query fetches a field that the list query doesn't return, Apollo Client will consider the cache hit to be incomplete, and will attempt to fetch the full data set over the network (if network requests are enabled).
+<Callout type="warning" emoji="⚠️">
+**Note:** For the above to work properly, the data returned by the list query has to include all of the data the specific detail query needs. If the specific detail query fetches a field that the list query doesn't return, Apollo Client will consider the cache hit to be incomplete, and will attempt to fetch the full data set over the network (if network requests are enabled).
 </Callout>
 
 ## Resetting the store
