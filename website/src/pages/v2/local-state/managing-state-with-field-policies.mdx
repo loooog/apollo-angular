@@ -244,7 +244,7 @@ If your GraphQL query uses variables, the local-only fields of that query can pr
 
 To do so, you apply the `@export(as: "variableName")` directive, like so:
 
-```typescript
+```typescript {3}
 const GET_CURRENT_AUTHOR_POST_COUNT = gql`
   query CurrentAuthorPostCount($authorId: Int!) {
     currentAuthorId @client @export(as: "authorId")
