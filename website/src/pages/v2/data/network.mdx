@@ -271,7 +271,7 @@ The batching options indicate how operations are batched together.
 - `batchKey` a function that accepts an operation and returns a string key, which uniquely names the batch the operation belongs to, defaults to returning the same string.
 
 <Callout type="info">
-**NOTICE:** `batchKey` by default batches together requests with the same uri and the same options. Since options from an operation's context overwrites those from a link you could end up with few differents keys and what it means, few separate requests.
+**Note:** `batchKey` by default batches together requests with the same uri and the same options. Since options from an operation's context overwrites those from a link you could end up with few differents keys and what it means, few separate requests.
 </Callout>
 
 ## Context
