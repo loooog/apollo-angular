@@ -1,19 +1,32 @@
 /* eslint sort-keys: error */
 import {
   AngularLogo,
+  DocsThemeConfig,
   FooterExtended,
-  mdxComponents,
   Header,
   Navbar,
+  mdxComponents,
 } from '@theguild/components';
-import {DocsThemeConfig} from 'nextra-theme-docs';
+// @ts-ignore -- TODO: @laurin why I get TS2307: Cannot find module '@theguild/components/giscus' or its corresponding type declarations.
+import type {Giscus} from '@theguild/components/giscus';
+import dynamic from 'next/dynamic';
+import {useRouter} from 'next/router';
 
 const SITE_NAME = 'Apollo Angular';
 
+const Comments = dynamic(
+  // @ts-ignore
+  () => import('@theguild/components/giscus').then((m) => m.Giscus),
+  {ssr: false},
+) as Giscus;
+
 const config: DocsThemeConfig = {
+  chat: {
+    link: 'https://discord.gg/94CDTmgmbs',
+  },
   components: mdxComponents,
   docsRepositoryBase:
-    'https://github.com/kamilkisiela/apollo-angular/tree/master/website/src/pages',
+    'https://github.com/kamilkisiela/apollo-angular/tree/v2/website/src/pages', // base URL for the docs repository
   editLink: {
     text: 'Edit this page on GitHub',
   },
@@ -42,18 +55,34 @@ const config: DocsThemeConfig = {
       </div>
     </>
   ),
+  main: {
+    extraContent() {
+      const {route} = useRouter();
+      if (route.startsWith('/docs') || route.startsWith('/tutorial')) {
+        return (
+          <Comments
+            repo="dotansimha/graphql-yoga"
+            repoId="MDEwOlJlcG9zaXRvcnkxMTA4MTk5Mzk="
+            category="Docs Discussion"
+            categoryId="DIC_kwDOBpr6Y84CAquY"
+          />
+        );
+      }
+      return null;
+    },
+  },
   navbar: (props) => (
     <>
       <Header
         accentColor="#1cc8ee"
         themeSwitch
-        searchBarProps={{version: 'v2'}}
+        searchBarProps={{version: 'v3'}}
       />
       <Navbar {...props} />
     </>
   ),
   project: {
-    link: 'https://github.com/kamilkisiela/apollo-angular',
+    link: 'https://github.com/kamilkisiela/apollo-angular', // GitHub link in the navbar
   },
   search: {
     component: null,

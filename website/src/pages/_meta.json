@@ -9,17 +9,15 @@
   "docs": {
     "title": "v2",
     "type": "page",
-    "version": true,
     "versioned": true
   },
-  "v2": {
+  "tutorial": {
     "title": "Tutorial",
     "type": "page"
   },
-  "v1": {
+  "v3": {
     "title": "v3",
     "type": "page",
-    "version": true,
     "versioned": true
   }
 }

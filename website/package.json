@@ -31,8 +31,6 @@
     ]
   },
   "devDependencies": {
-    "@guild-docs/algolia": "0.2.2",
-    "cross-env": "7.0.3",
     "eslint-config-next": "12.3.0",
     "@theguild/algolia": "0.0.2",
     "@theguild/tailwind-config": "0.1.0",
