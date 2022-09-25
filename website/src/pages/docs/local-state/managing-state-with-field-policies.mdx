@@ -57,7 +57,7 @@ If you query a local-only field that _doesn't_ define a `read` function, Apollo 
 
 Now that we've defined a field policy for `isInCart`, we can include the field in a query that _also_ queries our back-end server, like so:
 
-```typescript
+```typescript {6}
 const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($productId: ID!) {
     product(id: $productId) {
@@ -244,7 +244,7 @@ If your GraphQL query uses variables, the local-only fields of that query can pr
 
 To do so, you apply the `@export(as: "variableName")` directive, like so:
 
-```typescript
+```typescript {3}
 const GET_CURRENT_AUTHOR_POST_COUNT = gql`
   query CurrentAuthorPostCount($authorId: Int!) {
     currentAuthorId @client @export(as: "authorId")
