@@ -57,7 +57,7 @@ If you query a local-only field that _doesn't_ define a `read` function, Apollo 
 
 Now that we've defined a field policy for `isInCart`, we can include the field in a query that _also_ queries our back-end server, like so:
 
-```typescript
+```typescript {6}
 const GET_PRODUCT_DETAILS = gql`
   query ProductDetails($productId: ID!) {
     product(id: $productId) {
